@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Receptionist Outreach</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<h1>AI Receptionist Outreach</h1>
+<p class="sub">Add a lead. The right steps appear for India or abroad. Tick as you go.</p>
+
+<div class="stats" id="stats"></div>
+
+<div class="panel">
+<details>
+<summary>Daily checklist</summary>
+<ol>
+<li><b>Pick companies</b> with high call or chat volume (clinics, salons, real estate, hotels, coaching, home services).</li>
+<li><b>Find people in Apollo</b>: managers or ops heads first, then staff. Save name, role, phone, email.</li>
+<li><b>India:</b> call and pitch, then email.</li>
+<li><b>Abroad:</b> LinkedIn connect, then email, then WhatsApp.</li>
+<li><b>Follow up</b> on days 2, 5 and 10. Stop after 5 touches.</li>
+<li><b>On reply:</b> ask for a 15-minute call or demo, offer two time slots.</li>
+</ol>
+</details>
+</div>
+
+<div class="panel">
+<h2 id="fh2">Add lead</h2>
+<form id="f">
+<input name="company" placeholder="Company *" required>
+<input name="industry" placeholder="Industry">
+<select name="region"><option value="in">India</option><option value="intl">Other country</option></select>
+<input name="country" placeholder="Country / city">
+<input name="person" placeholder="Contact name *" required>
+<select name="role"><option>Manager</option><option>Operations head</option><option>Owner / Founder</option><option>Staff</option></select>
+<input name="phone" placeholder="Phone">
+<input name="email" type="email" placeholder="Email">
+<input name="linkedin" placeholder="LinkedIn URL" style="grid-column:span 2">
+<div style="grid-column:span 2; display:flex; gap:8px;">
+<button id="fb" class="pri" style="flex:1">Add lead</button>
+<button id="fc" type="button" style="display:none;flex:1">Cancel</button>
+</div>
+</form>
+</div>
+
+<div class="bar">
+<input id="q" placeholder="Search company or person">
+<select id="fs"><option value="">All statuses</option></select>
+<select id="fr"><option value="">All regions</option><option value="in">India</option><option value="intl">Other</option></select>
+<button id="exp">Export CSV</button>
+<button id="backup">Backup Data</button>
+<button onclick="document.getElementById('fileIn').click()">Restore Data</button>
+<input type="file" id="fileIn" style="display:none" accept=".json">
+</div>
+
+<div class="panel" id="csvbox" style="display:none"><h2>CSV (copied to clipboard if allowed)</h2><textarea style="width:100%;height:140px;font:12px monospace" readonly></textarea><div class="row"><button id="csvclose">Close</button></div></div>
+<div id="list"></div>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Test Neon in Browser</title></head>
+<body>
+  <h1>Test Neon</h1>
+  <div id="out"></div>
+  <script type="module">
+    import { Pool } from 'https://esm.sh/@neondatabase/serverless@0.9.3';
+    const pool = new Pool({
+      connectionString: "postgresql://neondb_owner:npg_7BVzILMdct9O@ep-silent-leaf-b4nfyxp4-pooler.c-6.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+    });
+    pool.query('SELECT 1 as num').then(res => {
+      document.getElementById('out').innerText = "Success: " + JSON.stringify(res.rows);
+    }).catch(err => {
+      document.getElementById('out').innerText = "Error: " + err.message;
+    });
+  </script>
+</body>
+</html>
